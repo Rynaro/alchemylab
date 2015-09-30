@@ -24,7 +24,7 @@ fi
 
 sudo apt-get install -y postgresql-$PGVERSION postgresql-client-$PGVERSION postgresql-contrib-$PGVERSION libpq-dev
 
-sudo -u postgres psql -c "CREATE ROLE brerp SUPERUSER LOGIN PASSWORD 'yourpasswd';"
+sudo -u postgres psql -c "CREATE ROLE yourrole SUPERUSER LOGIN PASSWORD 'yourpasswd';"
 sudo -u postgres psql -c "ALTER USER postgres WITH password 'yourpasswd';"
 
 sudo sed -i -- 's/seed/md5/g' /etc/postgresql/$PGVERSION/main/pg_hba.conf
