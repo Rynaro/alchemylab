@@ -17,12 +17,9 @@ sudo -u vagrant git clone https://github.com/sstephenson/rbenv-gem-rehash.git /h
 
 if [ "$(apt-cache policy postgresql-client-$PGVERSION | grep -c postgresql-client | head -n 1)" = "0" ];
 then
-  echo 'Writing PostgreSQL repository in your sources.list'
   sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ $CODENAME-pgdg main" >> /etc/apt/sources.list
-  echo 'We need some keys to unlock the doors'
   wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-  echo 'Updating Ubuntu repositories (again) !'
-  sudo apt-get -qq update
+  sudo apt-get update
 fi
 
 sudo apt-get install -y postgresql-$PGVERSION postgresql-client-$PGVERSION postgresql-contrib-$PGVERSION
