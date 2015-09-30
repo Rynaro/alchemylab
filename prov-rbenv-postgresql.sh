@@ -22,7 +22,7 @@ then
   sudo apt-get update
 fi
 
-sudo apt-get install -y postgresql-$PGVERSION postgresql-client-$PGVERSION postgresql-contrib-$PGVERSION
+sudo apt-get install -y postgresql-$PGVERSION postgresql-client-$PGVERSION postgresql-contrib-$PGVERSION libpq-dev
 
 sudo -u postgres psql -c "CREATE ROLE brerp SUPERUSER LOGIN PASSWORD 'yourpasswd';"
 sudo -u postgres psql -c "ALTER USER postgres WITH password 'yourpasswd';"
